@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+      body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(255,255,255);
+        font-family: arial;
+        font-size: 12px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      .message-container {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        box-shadow: rgba(0,0,0, 0.2) 0 0 10px;
+        border-top: 2px solid rgb(200,200,200);
+        width: 100%;
+        text-align: center;
+      }
+      .message-container input {
+        font-size: 14px;
+        padding: 10px;
+        width: 100%;
+        border-radius: 4px;
+        border: 0;
+        outline: none;
+      }
+
+      .messages {
+        padding: 4px 4px 100px 4px;
+      }
+      .messages .instant-message-container {
+        margin-bottom: 4px;
+        background-color: white;
+        color: rgb(100,100,100);
+      }
+
+      .messages .instant-message-container.joined {
+        color: #2ddd20;
+        font-weight: bold;
+      }
+
+      .messages .instant-message-container.quit {
+        color: #415196;
+        font-weight: bold;
+      }
+
+      .instant-message-container .date {
+        margin-right: 10px;
+      }
+
+      .instant-message-container .user {
+        font-weight: bold;
+      }
+
+      .instant-message-container .message {
+        color: (100,100,100);
+        font-size: 12px;
+        margin-left: 10px;
+      }
+
+      .name-input-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.9);
+      }
+
+      .name-input-wrapper .name-input-container {
+        left: 50%;
+        margin-left: -200px;
+        top: 50%;
+        margin-top: -20px;
+        position: absolute;
+      }
+
+      .name-input-container input {
+        width: 400px;
+        background-color: transparent;
+        border: 0;
+        border-bottom: 2px solid white;
+        padding: 10px 0 10px 0;
+        color: white;
+        font-size: 19px;
+        outline: none;
+        text-align: center;
+      }
+      .name-input-container p {
+        color: white;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="messages">
+      <div class="instant-message-container">
+        <span class="date">[19-01-2015]</span><span class="user">&lt;Retrojorgen&gt;</span> Dette er en beskjed som er festlig
+      </div>
+    </div>
+    <div class="message-container">
+      <input name="chat-input" id="chat-input">
+    </div>
+    <div class="name-input-wrapper">
+      <div class="name-input-container">
+        <input name="chat-name" id="chat-name" placeholder="Skriv brukernavn..">
+      </div>
+    </div>
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+	<script>
+    
+	  var socket = io.connect('http://localhost:3000');
+    $(function() {
+
+      var myUsername = '';
+
+      $('#button').on('click', function() {
+      });
+
+      $(document).on('keypress', function (event) {
+        var charCode = (typeof event.which == "number") ? event.which : event.keyCode;
+        console.log(charCode);
+        if(charCode === 13) {
+          if($('#chat-name').is(':focus')) {
+            console.log($('#chat-name').val());
+            socket.emit('register username', $('#chat-name').val());
+          } else {
+
+            socket.emit('message', {
+              date: new Date(),
+              username: myUsername,
+              message: $('<p>').html($('#chat-input').val()).text()
+            });
+
+            $('#chat-input').val('');
+          }
+        }
+      });
+      socket.on('username registered', function(username) {
+        myUsername = username;
+        console.log(username);
+        $('.name-input-wrapper').fadeOut();
+        $('#chat-input').focus();
+      });
+
+      socket.on('username registration failed', function(username) {
+        $('.name-input-container').append($('<p>').text('Brukernavnet ' + username + ' er allerede i bruk..'));
+      });
+
+      socket.on('user joined', function(username) {
+        createMessage({
+          date: new Date(),
+          username: 'Spillmuseet Bot',
+          message: '* User ' + username + ' joined the chat'
+        }, 'joined');
+      });
+
+      socket.on('user disconnected', function(username) {
+        createMessage({
+          date: new Date(),
+          username: 'Spillmuseet Bot',
+          message: '* User ' + username + ' disconnected from the chat'
+        }, 'quit');
+      });
+
+      socket.on('message', function (message) {
+        console.log(message);
+        createMessage(message, 'ordinary');
+      });
+
+      var createMessage = function(message, className) {
+        var messageContainer = $('<div>').addClass('instant-message-container');
+
+        if(className) {
+          messageContainer.addClass(className);
+        }
+
+        var messageText = $('<span>').text(message.message).addClass('message');
+        messageContainer.append($('<span>').addClass('date').text('[' + message.date + ']'), $('<span>').addClass('user').text('<' + message.username + '>'), messageText);
+        $('.messages').append(messageContainer);
+      };
+    });
+	</script>
+  </body>
+</html>
