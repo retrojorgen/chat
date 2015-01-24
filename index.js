@@ -3,7 +3,6 @@ var io = require('socket.io')(server);
 var fs = require('fs');
 var usernames = [];
 var users = {};
-io.set('origins', 'http://www.spillmuseet.no:80');
 
 
 var writeToFile = function (message) {
