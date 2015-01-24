@@ -3,6 +3,7 @@ var io = require('socket.io')(server);
 var fs = require('fs');
 var usernames = [];
 var users = {};
+io.set('origins', '*:*');
 
 
 var writeToFile = function (message) {
@@ -11,6 +12,8 @@ var writeToFile = function (message) {
 
 	});
 }
+
+console.log('server running');
 
 io.on('connection', function(socket){
 	
