@@ -102,9 +102,6 @@
   </head>
   <body>
     <div class="messages">
-      <div class="instant-message-container">
-        <span class="date">[19-01-2015]</span><span class="user">&lt;Retrojorgen&gt;</span> Dette er en beskjed som er festlig
-      </div>
     </div>
     <div class="message-container">
       <input name="chat-input" id="chat-input">
@@ -115,10 +112,10 @@
       </div>
     </div>
 	<script src="bower_components/jquery/dist/jquery.js"></script>
-	<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+	<script src="http://54.154.215.233:3000/socket.io/socket.io.js"></script>
 	<script>
     
-	  var socket = io.connect('http://localhost:3000');
+	  var socket = io.connect('http://54.154.215.233:3000');
     $(function() {
 
       var myUsername = '';
@@ -154,6 +151,7 @@
 
       socket.on('username registration failed', function(username) {
         $('.name-input-container').append($('<p>').text('Brukernavnet ' + username + ' er allerede i bruk..'));
+        window.scrollTo(0,document.body.scrollHeight);
       });
 
       socket.on('user joined', function(username) {
@@ -187,6 +185,7 @@
         var messageText = $('<span>').text(message.message).addClass('message');
         messageContainer.append($('<span>').addClass('date').text('[' + message.date + ']'), $('<span>').addClass('user').text('<' + message.username + '>'), messageText);
         $('.messages').append(messageContainer);
+        window.scrollTo(0,document.body.scrollHeight);
       };
     });
 	</script>
