@@ -1,0 +1,632 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 5, ../../../../.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+@font-face {
+  font-family: "Pixel";
+  src: url('../fonts/pixel.ttf?1099418656') format('truetype');
+}
+/* line 10, ../sass/screen.scss */
+html, body {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  font-family: "Pixel";
+}
+
+/* line 19, ../sass/screen.scss */
+body {
+  background-color: #151d29;
+  text-transform: uppercase;
+}
+
+/* line 24, ../sass/screen.scss */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 29, ../sass/screen.scss */
+#mobile-wrapper {
+  position: absolute;
+  width: 375px;
+  height: 667px;
+  top: 50%;
+  left: 50%;
+  overflow: hidden;
+  margin-top: -333.5px;
+  margin-left: -187.5px;
+  -moz-box-shadow: rgba(255, 255, 255, 0.4) 0 0 34px;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.4) 0 0 34px;
+  box-shadow: rgba(255, 255, 255, 0.4) 0 0 34px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+
+/* line 43, ../sass/screen.scss */
+#levelContainer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+}
+
+/* line 52, ../sass/screen.scss */
+#titlefield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  text-transform: uppercase;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  z-index: 1000;
+}
+
+/* line 66, ../sass/screen.scss */
+#logo {
+  color: #efefd5;
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+/* line 71, ../sass/screen.scss */
+#logo span {
+  display: block;
+  text-shadow: #91278f 3px 3px 0;
+}
+/* line 75, ../sass/screen.scss */
+#logo span:nth-child(2) {
+  font-size: 96px;
+}
+
+/* line 80, ../sass/screen.scss */
+.janstandard {
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  height: 250px;
+  width: 100%;
+  background-image: url(../img/retrojan-angry.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+}
+/* line 92, ../sass/screen.scss */
+.janstandard.small {
+  left: -10px;
+  bottom: 54px;
+  width: 250px;
+}
+/* line 97, ../sass/screen.scss */
+.janstandard.rightjan {
+  background-image: url(../img/retrojan-thumbs-up.png);
+}
+/* line 100, ../sass/screen.scss */
+.janstandard.wrongjan {
+  background-image: url(../img/retrojan-very-angry.png);
+}
+
+/* line 105, ../sass/screen.scss */
+#mainscreen {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  background-image: url(../img/quiz-quest-splash.jpg);
+  background-size: cover;
+  background-position: center top;
+  text-align: center;
+  padding: 10px;
+  z-index: 100;
+  padding-top: 40px;
+  text-transform: uppercase;
+  text-align: center;
+  -moz-box-shadow: black 0 0 40px;
+  -webkit-box-shadow: black 0 0 40px;
+  box-shadow: black 0 0 40px;
+}
+/* line 123, ../sass/screen.scss */
+#mainscreen img {
+  display: inline-block;
+}
+/* line 127, ../sass/screen.scss */
+#mainscreen .menu-item {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #242A31;
+  background-color: #efefd5;
+  font-family: "Pixel";
+  font-size: 20px;
+  border: 0;
+  text-transform: uppercase;
+}
+
+/* line 139, ../sass/screen.scss */
+.plaintext {
+  color: #efefd5;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-shadow: black 2px 2px 0;
+}
+/* line 147, ../sass/screen.scss */
+.plaintext.small {
+  font-size: 11px;
+}
+
+/* line 152, ../sass/screen.scss */
+.inputbox {
+  position: absolute;
+  display: none;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 50% 20px 20px 20px;
+}
+/* line 160, ../sass/screen.scss */
+.inputbox .plaintext {
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+}
+/* line 164, ../sass/screen.scss */
+.inputbox .plaintext.small {
+  margin-top: 14px;
+  line-height: 1.5;
+}
+/* line 169, ../sass/screen.scss */
+.inputbox #username-input,
+.inputbox #email-input {
+  width: 100%;
+  border: 0;
+  padding: 10px;
+  background-color: transparent;
+  text-transform: uppercase;
+  border-bottom: 1px solid #efefd5;
+  margin-bottom: 20px;
+  font-family: "Pixel";
+  text-align: center;
+  color: #efefd5;
+  outline: none;
+  font-size: 30px;
+}
+/* line 185, ../sass/screen.scss */
+.inputbox .button-container {
+  text-align: center;
+}
+/* line 188, ../sass/screen.scss */
+.inputbox .submit {
+  padding: 10px 20px;
+  color: #242A31;
+  background-color: #efefd5;
+  font-family: "Pixel";
+  font-size: 20px;
+  border: 0;
+  text-transform: uppercase;
+}
+/* line 196, ../sass/screen.scss */
+.inputbox .submit.invert {
+  background-color: #242A31;
+  color: #efefd5;
+}
+
+/* line 203, ../sass/screen.scss */
+#lives {
+  height: 30px;
+  width: 116px;
+  overflow: hidden;
+  position: absolute;
+  left: 4px;
+  bottom: 4px;
+  background-image: url(../img/pixel-lives.png);
+  background-size: auto 100%;
+}
+
+/* line 217, ../sass/screen.scss */
+#loading {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  margin-left: -10px;
+  margin-top: -10px;
+  z-index: 1000;
+  -moz-animation: loop 1s infinite linear;
+  -webkit-animation: loop 1s infinite linear;
+  animation: loop 1s infinite linear;
+  -moz-box-shadow: black 1px 1px 10px;
+  -webkit-box-shadow: black 1px 1px 10px;
+  box-shadow: black 1px 1px 10px;
+}
+
+/* line 234, ../sass/screen.scss */
+#authenticationScreen {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  background-image: url(../img/quiz-quest-splash.jpg);
+  background-size: cover;
+  background-position: center top;
+  text-align: center;
+  padding: 10px;
+  z-index: 101;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 40px 40px 0 40px;
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+  -moz-box-shadow: black 10px 10px 140px;
+  -webkit-box-shadow: black 10px 10px 140px;
+  box-shadow: black 10px 10px 140px;
+}
+/* line 251, ../sass/screen.scss */
+#authenticationScreen:before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+/* line 261, ../sass/screen.scss */
+#authenticationScreen img {
+  display: inline-block;
+}
+/* line 265, ../sass/screen.scss */
+#authenticationScreen #facebookLoginButton,
+#authenticationScreen #facebookLogoutButton {
+  padding: 10px;
+  display: inline-block;
+  background-color: red;
+  color: #efefd5;
+  font-size: 20px;
+  letter-spacing: 1px;
+  -moz-box-shadow: black 1px 1px 0;
+  -webkit-box-shadow: black 1px 1px 0;
+  box-shadow: black 1px 1px 0;
+}
+/* line 276, ../sass/screen.scss */
+#authenticationScreen #loginNoUser {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  color: #efefd5;
+  text-shadow: black 2px 2px 0;
+  font-size: 16px;
+  letter-spacing: 1;
+}
+
+@-moz-keyframes loop {
+  0% {
+    -moz-transform: rotate(0) scale(1);
+    transform: rotate(0) scale(1);
+  }
+  50% {
+    -moz-transform: rotate(180deg) scale(1.5);
+    transform: rotate(180deg) scale(1.5);
+  }
+  100% {
+    -moz-transform: rotate(360deg) scale(1);
+    transform: rotate(360deg) scale(1);
+  }
+}
+@-webkit-keyframes loop {
+  0% {
+    -webkit-transform: rotate(0) scale(1);
+    transform: rotate(0) scale(1);
+  }
+  50% {
+    -webkit-transform: rotate(180deg) scale(1.5);
+    transform: rotate(180deg) scale(1.5);
+  }
+  100% {
+    -webkit-transform: rotate(360deg) scale(1);
+    transform: rotate(360deg) scale(1);
+  }
+}
+@keyframes loop {
+  0% {
+    -moz-transform: rotate(0) scale(1);
+    -ms-transform: rotate(0) scale(1);
+    -webkit-transform: rotate(0) scale(1);
+    transform: rotate(0) scale(1);
+  }
+  50% {
+    -moz-transform: rotate(180deg) scale(1.5);
+    -ms-transform: rotate(180deg) scale(1.5);
+    -webkit-transform: rotate(180deg) scale(1.5);
+    transform: rotate(180deg) scale(1.5);
+  }
+  100% {
+    -moz-transform: rotate(360deg) scale(1);
+    -ms-transform: rotate(360deg) scale(1);
+    -webkit-transform: rotate(360deg) scale(1);
+    transform: rotate(360deg) scale(1);
+  }
+}
+/* line 299, ../sass/screen.scss */
+#timer {
+  position: absolute;
+  left: 0;
+  bottom: 40px;
+  height: 10px;
+  background-color: white;
+  width: 100%;
+}
+
+/* line 308, ../sass/screen.scss */
+#bottomContainer {
+  font-size: 20px;
+  color: white;
+  text-shadow: black 1px 1px 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  border-top: 1px solid white;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.5);
+  -moz-transform: translateY(40px);
+  -ms-transform: translateY(40px);
+  -webkit-transform: translateY(40px);
+  transform: translateY(40px);
+  -moz-transition: 0.25s;
+  -o-transition: 0.25s;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+/* line 322, ../sass/screen.scss */
+#bottomContainer.visible {
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+/* line 326, ../sass/screen.scss */
+#bottomContainer #score {
+  position: absolute;
+  width: 50%;
+  left: 50%;
+  padding: 10px;
+  text-align: right;
+}
+
+/* line 336, ../sass/screen.scss */
+#levelContainer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-image: url(../img/quiz-background.jpg);
+  background-size: cover;
+  background-position: center top;
+  -moz-perspective: 3000;
+  -webkit-perspective: 3000;
+  perspective: 3000;
+}
+/* line 346, ../sass/screen.scss */
+#levelContainer .level-timer {
+  position: absolute;
+  width: 100%;
+  background-color: #fb9817;
+  left: 0;
+  top: 0;
+  height: 10px;
+}
+/* line 355, ../sass/screen.scss */
+#levelContainer #countdown {
+  position: absolute;
+  left: 50%;
+  margin-left: -20px;
+  font-size: 40px;
+  bottom: 50px;
+  color: white;
+  z-index: 100;
+}
+/* line 365, ../sass/screen.scss */
+#levelContainer .answerbutton {
+  text-align: center;
+  margin-top: 20px;
+  background-color: white;
+  color: #242A31;
+  padding: 10px;
+  font-size: 29px;
+}
+/* line 372, ../sass/screen.scss */
+#levelContainer .answerbutton:active {
+  background-color: #242A31;
+  color: white;
+  margin-top: 22px;
+  padding-bottom: 8px;
+}
+/* line 379, ../sass/screen.scss */
+#levelContainer .questionContainer {
+  color: white;
+  position: absolute;
+  width: 100%;
+  padding: 30px 20px 20px 20px;
+}
+/* line 384, ../sass/screen.scss */
+#levelContainer .questionContainer .question {
+  color: white;
+  text-transform: uppercase;
+  font-size: 40px;
+  text-align: center;
+  text-shadow: black 1px 1px 0;
+}
+/* line 394, ../sass/screen.scss */
+#levelContainer .questionContainer.multipleChoice .alternative:before, #levelContainer .questionContainer.multipleChoice .alternative:after {
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+/* line 399, ../sass/screen.scss */
+#levelContainer .questionContainer .alternative {
+  padding: 10px;
+  padding-left: 65px;
+  margin: 15px 0 15px 0;
+  color: white;
+  font-size: 20px;
+  text-align: left;
+  letter-spacing: 1;
+  background-color: transparent;
+  text-shadow: black 1px 1px 0;
+  -moz-transition: 0.1s;
+  -o-transition: 0.1s;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  position: relative;
+}
+/* line 411, ../sass/screen.scss */
+#levelContainer .questionContainer .alternative.faded {
+  opacity: 0.6;
+}
+/* line 414, ../sass/screen.scss */
+#levelContainer .questionContainer .alternative:before {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 1px solid white;
+  left: 0;
+  top: 0;
+  content: "";
+  border-radius: 50%;
+  z-index: 2;
+  -moz-transition: 0.25s;
+  -o-transition: 0.25s;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+/* line 426, ../sass/screen.scss */
+#levelContainer .questionContainer .alternative:after {
+  position: absolute;
+  opacity: 0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid white;
+  background-color: white;
+  left: 10px;
+  top: 10px;
+  content: "";
+  border-radius: 50%;
+  z-index: 1;
+  -moz-transition: 0.25s;
+  -o-transition: 0.25s;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+/* line 440, ../sass/screen.scss */
+#levelContainer .questionContainer .alternative.correct-answer {
+  background-color: #4cc124;
+}
+/* line 443, ../sass/screen.scss */
+#levelContainer .questionContainer .alternative.wrong-answer {
+  background-color: #FF0000;
+}
+/* line 447, ../sass/screen.scss */
+#levelContainer .questionContainer .alternative.selected:before {
+  border: 1px solid black;
+  -moz-transform: scale(-0.5);
+  -ms-transform: scale(-0.5);
+  -webkit-transform: scale(-0.5);
+  transform: scale(-0.5);
+}
+/* line 451, ../sass/screen.scss */
+#levelContainer .questionContainer .alternative.selected:after {
+  opacity: 1;
+  -moz-transform: scale(2);
+  -ms-transform: scale(2);
+  -webkit-transform: scale(2);
+  transform: scale(2);
+}
